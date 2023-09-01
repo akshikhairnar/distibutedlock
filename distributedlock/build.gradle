@@ -1,0 +1,38 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.1.3'
+	id 'io.spring.dependency-management' version '1.1.3'
+}
+
+group = 'com.poc'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis-reactive'
+	implementation 'org.springframework.boot:spring-boot-starter-integration'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.integration:spring-integration-http'
+	implementation 'org.springframework.integration:spring-integration-redis'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'io.projectreactor:reactor-test'
+	testImplementation 'org.springframework.integration:spring-integration-test'
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis:3.1.3'
+	implementation 'io.lettuce:lettuce-core:6.2.6.RELEASE'
+	// https://mvnrepository.com/artifact/org.springframework.integration/spring-integration-redis
+	runtimeOnly 'org.springframework.integration:spring-integration-redis:6.1.2'
+
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
